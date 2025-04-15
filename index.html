@@ -1,36 +1,16 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Monitoreo Hidroponía - Wilawilani - UPEA</title>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="app.js" defer></script>
-  <style>
-    body {background-color: #e0f0ff; font-family: Arial, sans-serif; text-align: center; padding: 10px;}
-    h1 {font-size: 28px; margin-bottom: 10px;}
-    .gauge-container {display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-bottom: 20px;}
-    .gauge-block {width: 180px;}
-    canvas {width: 100%; height: auto;}
-    .estado {font-size: 24px; font-weight: bold; padding: 10px; color: white; display: inline-block; border-radius: 5px; margin-top: 15px;}
-    .estado.FUNCIONANDO {background-color: green;}
-    .estado.ESPERA {background-color: orange;}
-    .estado.BAJO {background-color: red;}
-    footer {margin-top: 20px; font-size: 14px;}
-  </style>
+<meta charset="UTF-8">
+<title>Prueba Aire - Firebase Tiempo Real</title>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js" defer></script>
 </head>
-<body>
-  <h1>MONITOREO HIDROPONÍA - WILAWILANI - UPEA</h1>
-  <div class="gauge-container">
-    <div class="gauge-block"><div>Aire (°C)</div><canvas id="aireGauge"></canvas></div>
-    <div class="gauge-block"><div>Agua (°C)</div><canvas id="aguaGauge"></canvas></div>
-    <div class="gauge-block"><div>Humedad (%)</div><canvas id="humedadGauge"></canvas></div>
-    <div class="gauge-block"><div>pH</div><canvas id="phGauge"></canvas></div>
-    <div class="gauge-block"><div>TDS (ppm)</div><canvas id="tdsGauge"></canvas></div>
-  </div>
-  <div id="estadoSistema" class="estado">Estado: --</div>
-  <footer>Diseñado por Alditos - UPEA</footer>
+<body style="text-align:center;">
+<h2>Aire (°C)</h2>
+<canvas id="aireGauge" width="200" height="100"></canvas>
+<p id="valorAire">-- °C</p>
 </body>
 </html>
