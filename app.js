@@ -12,7 +12,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const dbRef = firebase.database().ref("Nodo2");
 
-dbRef.limitToLast(1).on("child_added", (snapshot) => {
-  const data = snapshot.val();
-  document.getElementById("aire").innerHTML = data.Aire + " °C";
+dbRef.limitToLast(1).on("value", (snapshot) => {
+  snapshot.forEach((childSnapshot) => {
+    const data = childSnapshot.val();
+    document.getElementById("aire").innerText = (data.Aire ?? "--") + " °C";
+  });
 });
