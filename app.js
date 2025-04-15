@@ -1,36 +1,18 @@
 
 const firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://PROJECT_ID-default-rtdb.firebaseio.com",
-  projectId: "PROJECT_ID",
+  apiKey: "AIzaSyAADF1ri_yYtYLY3NlKncxb8AlkWcmy55Q",
+  authDomain: "monitoreo-hidropro.firebaseapp.com",
+  databaseURL: "https://monitoreo-hidropro-default-rtdb.firebaseio.com",
+  projectId: "monitoreo-hidropro",
+  storageBucket: "monitoreo-hidropro.appspot.com",
+  messagingSenderId: "269017723506",
+  appId: "1:269017723506:web:85ffb8994c2c1221928eb"
 };
+
 firebase.initializeApp(firebaseConfig);
+const dbRef = firebase.database().ref("Nodo2");
 
-const dbRef = firebase.database().ref("Nodo2/ÚltimoDato");
-
-const ctx = document.getElementById("aireGauge").getContext("2d");
-const chartAire = new Chart(ctx, {
-  type: "doughnut",
-  data: {
-    datasets: [{
-      data: [0, 100],
-      backgroundColor: ["red", "#eee"],
-      borderWidth: 0,
-    }]
-  },
-  options: {
-    rotation: -90,
-    circumference: 180,
-    cutout: '75%',
-    plugins: { legend: { display: false } }
-  }
-});
-
-dbRef.on("value", (snapshot) => {
+dbRef.limitToLast(1).on("child_added", (snapshot) => {
   const data = snapshot.val();
-  const aire = data.Aire ?? 0;
-  chartAire.data.datasets[0].data = [aire, 100 - aire];
-  chartAire.update();
-  document.getElementById("valorAire").innerHTML = aire + " °C";
+  document.getElementById("aire").innerHTML = data.Aire + " °C";
 });

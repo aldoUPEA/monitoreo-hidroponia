@@ -3,14 +3,13 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Prueba Aire - Firebase Tiempo Real</title>
+<title>Aire (°C) - Tiempo Real</title>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="app.js" defer></script>
 </head>
-<body style="text-align:center;">
+<body style="text-align:center; font-size:25px; margin-top:80px;">
 <h2>Aire (°C)</h2>
-<canvas id="aireGauge" width="200" height="100"></canvas>
-<p id="valorAire">-- °C</p>
+<div id="aire">-- °C</div>
 </body>
 </html>
