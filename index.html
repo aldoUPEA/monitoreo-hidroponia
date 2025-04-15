@@ -1,15 +1,54 @@
 
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Aire (°C) - Tiempo Real</title>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-<script src="app.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Monitoreo Hidropónico</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="app.js" defer></script>
+  <style>
+    body {
+      background-color: #e0f0ff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      margin: 20px;
+    }
+    .gauge-container {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .gauge-block {
+      width: 180px;
+    }
+    .estado {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 10px;
+      color: white;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    footer {
+      margin-top: 20px;
+    }
+  </style>
 </head>
-<body style="text-align:center; font-size:25px; margin-top:80px;">
-<h2>Aire (°C)</h2>
-<div id="aire">-- °C</div>
+<body>
+  <h1>MONITOREO HIDROPONÍA - WILAWILANI - UPEA</h1>
+  <div class="gauge-container">
+    <div class="gauge-block"><div>Aire (°C)</div><div id="aire">--</div></div>
+    <div class="gauge-block"><div>Agua (°C)</div><div id="agua">--</div></div>
+    <div class="gauge-block"><div>Humedad (%)</div><div id="humedad">--</div></div>
+    <div class="gauge-block"><div>pH</div><div id="ph">--</div></div>
+    <div class="gauge-block"><div>TDS (ppm)</div><div id="tds">--</div></div>
+  </div>
+  <div id="estado" class="estado">Estado: --</div>
+  <footer>Diseñado por Alditos - UPEA</footer>
 </body>
 </html>
