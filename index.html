@@ -1,54 +1,49 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Monitoreo Hidropónico</title>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-  <script src="app.js" defer></script>
-  <style>
-    body {
-      background-color: #e0f0ff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    h1 {
-      font-size: 28px;
-      margin: 20px;
-    }
-    .gauge-container {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 20px;
-    }
-    .gauge-block {
-      width: 180px;
-    }
-    .estado {
-      font-size: 24px;
-      font-weight: bold;
-      padding: 10px;
-      color: white;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    footer {
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Monitoreo Hidropónico</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script defer src="app.js"></script>
 </head>
 <body>
-  <h1>MONITOREO HIDROPONÍA - WILAWILANI - UPEA</h1>
-  <div class="gauge-container">
-    <div class="gauge-block"><div>Aire (°C)</div><div id="aire">--</div></div>
-    <div class="gauge-block"><div>Agua (°C)</div><div id="agua">--</div></div>
-    <div class="gauge-block"><div>Humedad (%)</div><div id="humedad">--</div></div>
-    <div class="gauge-block"><div>pH</div><div id="ph">--</div></div>
-    <div class="gauge-block"><div>TDS (ppm)</div><div id="tds">--</div></div>
-  </div>
-  <div id="estado" class="estado">Estado: --</div>
-  <footer>Diseñado por Alditos - UPEA</footer>
+    <h1>MONITOREO HIDROPONÍA - WILAWILANI - UPEA</h1>
+    <div class="gauges">
+        <div><p>Aire (°C)</p><div id="aire">--</div></div>
+        <div><p>Agua (°C)</p><div id="agua">--</div></div>
+        <div><p>Humedad (%)</p><div id="humedad">--</div></div>
+        <div><p>pH</p><div id="ph">--</div></div>
+        <div><p>TDS (ppm)</p><div id="tds">--</div></div>
+    </div>
+    <div class="estado" id="estadoDiv">Estado: --</div>
+    <footer>
+        <p>Diseñado por Alditos - UPEA</p>
+        <label for="seleccionarMes">Mes:</label>
+        <select id="seleccionarMes">
+            <option value="01">Enero</option>
+            <option value="02">Febrero</option>
+            <option value="03">Marzo</option>
+            <option value="04">Abril</option>
+            <option value="05">Mayo</option>
+            <option value="06">Junio</option>
+            <option value="07">Julio</option>
+            <option value="08">Agosto</option>
+            <option value="09">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+        </select>
+        <label for="seleccionarAnio">Año:</label>
+        <select id="seleccionarAnio">
+            <option value="2024">2024</option>
+            <option value="2025" selected>2025</option>
+        </select>
+        <br/><br/>
+        <button onclick="descargarCSV()">📁 Descargar CSV</button>
+        <button onclick="borrarDatosManualmente()">🗑️ Borrar Datos Manualmente</button>
+    </footer>
 </body>
 </html>
