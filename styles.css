@@ -42,3 +42,10 @@ button {
     margin: 5px;
     padding: 8px 12px;
 }
+
+/* ✅ Estilo para alertas visuales */
+.alerta-activa {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 2px solid #ffeeba;
+}
